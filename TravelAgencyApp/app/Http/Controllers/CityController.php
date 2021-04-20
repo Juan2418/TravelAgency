@@ -21,10 +21,29 @@ class CityController extends Controller
 
     public function store()
     {
-        $validatedFields = request()->validate([
+        $validatedFields = $this->validateCityName();
+        City::create($validatedFields);
+        redirect('/');
+    }
+
+    public function edit(City $city)
+    {
+        return view('cities.edit', ['city' => $city]);
+    }
+
+    public function update(City $city)
+    {
+        $city->update($this->validateCityName());
+        redirect('/');
+    }
+
+    /**
+     * @return array
+     */
+    private function validateCityName(): array
+    {
+        return request()->validate([
             'name' => ['required', 'unique:cities']
         ]);
-        City::create($validatedFields);
-        return $this->index();
     }
 }
