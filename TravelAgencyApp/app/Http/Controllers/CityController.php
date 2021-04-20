@@ -33,6 +33,7 @@ class CityController extends Controller
 
     public function update(City $city)
     {
+        
         $city->update($this->validateCityName());
         redirect('/');
     }
@@ -45,5 +46,10 @@ class CityController extends Controller
         return request()->validate([
             'name' => ['required', 'unique:cities']
         ]);
+    }
+
+    public function delete(City $city) {
+        $city->delete();
+        redirect('/');
     }
 }
