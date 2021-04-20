@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.help {
+    color: #af0404;
+    font-size: xx-small;
+}
+
+.input {
+    border: 1px solid;
+}
+
+.input is-danger{
+    border-color: #af0404;
+    border-width: 1px;
+}
+
+.btn {
+    border-radius: 25px;
+    color: azure;
+    border: 2px solid #447697;
+    padding: 0.2rem;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    background-color: #a0aec0;
+}
+
+.btn:hover {
+    background-color: #59a5d8; /* Blue */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+

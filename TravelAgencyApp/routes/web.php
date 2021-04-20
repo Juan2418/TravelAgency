@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/cities','App\Http\Controllers\CityController@index');
+Route::get('/cities/create','App\Http\Controllers\CityController@create');
 Route::post('/cities','App\Http\Controllers\CityController@store');
 
-Route::get('/','App\Http\Controllers\CityController@create');

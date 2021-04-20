@@ -22,7 +22,7 @@ class CityController extends Controller
     public function store()
     {
         $validatedFields = request()->validate([
-            'name' => ['required']
+            'name' => ['required', 'unique:cities']
         ]);
         City::create($validatedFields);
         return $this->index();

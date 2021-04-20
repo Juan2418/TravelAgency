@@ -19,6 +19,9 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" >
+
+        @yield('head')
     </head>
     <body class="antialiased">
         @yield('content')
