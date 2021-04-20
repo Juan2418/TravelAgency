@@ -24,6 +24,10 @@
         @yield('head')
     </head>
     <body class="antialiased">
+        <nav class="menu">
+            <a href="/cities/create">Crear Ciudad</a>
+            <a href="/cities">Listar Ciudades</a>
+        </nav>
         @yield('content')
     </body>
 </html>

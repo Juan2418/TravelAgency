@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::get('/cities','App\Http\Controllers\CityController@index');
 Route::get('/cities/create','App\Http\Controllers\CityController@create');
 Route::get('/cities/{city}/edit','App\Http\Controllers\CityController@edit');
