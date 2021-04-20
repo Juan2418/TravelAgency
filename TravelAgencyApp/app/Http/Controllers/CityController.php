@@ -23,7 +23,7 @@ class CityController extends Controller
     {
         $validatedFields = $this->validateCityName();
         City::create($validatedFields);
-        redirect('/');
+        return redirect(route('cities.index'));
     }
 
     public function edit(City $city)
@@ -36,7 +36,7 @@ class CityController extends Controller
         if (strcmp($city->name, request('name')) != 0) {
             $city->update($this->validateCityName());
         }
-        redirect('/');
+        return redirect(route('cities.index'));
     }
 
     /**
@@ -52,6 +52,6 @@ class CityController extends Controller
     public function delete(City $city)
     {
         $city->delete();
-        redirect('/');
+        return redirect(route('cities.index'));
     }
 }

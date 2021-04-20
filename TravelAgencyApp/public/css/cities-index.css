@@ -1,4 +1,6 @@
 .city-name {
     align-self: center;
     margin-left: 0.5rem;
+    font-weight: bold;
+    text-overflow-ellipsis: auto;
 }

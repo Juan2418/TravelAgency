@@ -25,9 +25,11 @@
     </head>
     <body class="antialiased">
         <nav class="menu">
-            <a href="/cities/create">Crear Ciudad</a>
-            <a href="/cities">Listar Ciudades</a>
+            <a href="/cities/create" class="menu-item {{Request::is('cities/create') ? 'clicked' : ''}}">Crear Ciudad</a>
+            <a href="{{route('cities.index')}}" class="menu-item {{Request::is('cities') ? 'clicked' : ''}}">Listar Ciudades</a>
         </nav>
-        @yield('content')
+        <main class="main-content">
+            @yield('content')
+        </main>
     </body>
 </html>
