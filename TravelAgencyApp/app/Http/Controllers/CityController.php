@@ -33,8 +33,9 @@ class CityController extends Controller
 
     public function update(City $city)
     {
-        
-        $city->update($this->validateCityName());
+        if (strcmp($city->name, request('name')) != 0) {
+            $city->update($this->validateCityName());
+        }
         redirect('/');
     }
 
@@ -48,7 +49,8 @@ class CityController extends Controller
         ]);
     }
 
-    public function delete(City $city) {
+    public function delete(City $city)
+    {
         $city->delete();
         redirect('/');
     }
