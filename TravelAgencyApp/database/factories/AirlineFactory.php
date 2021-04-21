@@ -22,7 +22,8 @@ class AirlineFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->streetName,
+            'description' => $this->faker->realText()
         ];
     }
 }

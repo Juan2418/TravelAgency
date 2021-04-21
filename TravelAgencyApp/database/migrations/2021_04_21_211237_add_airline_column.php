@@ -14,7 +14,7 @@ class AddAirlineColumn extends Migration
     public function up()
     {
         Schema::table('flights', function (Blueprint $table) {
-            //
+            $table->unsignedBigInteger('airline_id')->references('id')->on('airlines');
         });
     }
 
