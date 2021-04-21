@@ -9,6 +9,9 @@
     justify-content: center;
 }
 
+.info {
+    font-weight: bold;
+}
 
 .help {
     color: #af0404;

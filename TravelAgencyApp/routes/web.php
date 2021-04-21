@@ -23,3 +23,4 @@ Route::post('/cities','App\Http\Controllers\CityController@store');
 Route::put('/cities/{city}','App\Http\Controllers\CityController@update');
 Route::get('/cities/{city}/delete','App\Http\Controllers\CityController@delete');
 
+Route::get('/flights','App\Http\Controllers\FlightController@index')->name('flights.index');

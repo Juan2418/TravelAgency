@@ -25,8 +25,9 @@
     </head>
     <body class="antialiased">
         <nav class="menu">
-            <a href="/cities/create" class="menu-item {{Request::is('cities/create') ? 'clicked' : ''}}">Crear Ciudad</a>
+            <a href="/cities/create" class="menu-item {{Request::is('cities/create') ? 'clicked' : ''}}">Agregar Ciudad</a>
             <a href="{{route('cities.index')}}" class="menu-item {{Request::is('cities') ? 'clicked' : ''}}">Listar Ciudades</a>
+            <a href="{{route('flights.index')}}" class="menu-item {{Request::is('flights') ? 'clicked' : ''}}">Listar Vuelos</a>
         </nav>
         <main class="main-content">
             @yield('content')
