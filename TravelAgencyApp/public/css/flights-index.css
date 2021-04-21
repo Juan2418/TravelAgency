@@ -1,0 +1,15 @@
+.flight-item {
+    border: 0.3rem dashed #cea2ac;
+    display: flex;
+    flex-direction: column;
+    padding: 0.2em;
+    background-color: #f49fbc;
+}
+
+.flight-item-group {
+    margin: 0.5rem;
+    display: grid;
+    grid-template-areas: "a b c";
+    grid-column-gap: 0.2rem;
+    grid-row-gap: 0.2rem;
+}

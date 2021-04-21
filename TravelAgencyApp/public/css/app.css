@@ -9,6 +9,9 @@
     justify-content: center;
 }
 
+.info {
+    font-weight: bold;
+}
 
 .help {
     color: #af0404;
@@ -31,6 +34,7 @@
 }
 
 .menu-item {
+    margin: 0.2rem;
     border-radius: 25px;
     border: 2px solid #6461A0;
     padding: 0.2rem;
@@ -38,6 +42,11 @@
     background-color: transparent;
     font-weight: bold;
     text-align: center;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: row;
 }
 
 .clicked {
