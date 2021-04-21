@@ -24,7 +24,7 @@ class CreateFlightsTable extends Migration
             $table->dateTime('departure_date');
             $table->dateTime('arrival_date');
             $table->timestamps();
-            
+
         });
     }
 
