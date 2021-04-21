@@ -33,3 +33,4 @@ Route::post('/flights', 'App\Http\Controllers\FlightController@store');
 Route::get('/flights/{flight}/edit', 'App\Http\Controllers\FlightController@edit')
     ->name('flights.edit');
 Route::put('/flights/{flight}', 'App\Http\Controllers\FlightController@update');
+Route::delete('/flights/{flight}', 'App\Http\Controllers\FlightController@delete');

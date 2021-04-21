@@ -11,6 +11,11 @@
                 <span>Destination city: <em class="info">{{$flight->destinationCity->name}}</em></span>
                 <span>Departure at: <em class="info">{{$flight->departure_date}}</em></span>
                 <span>Arrival at: <em class="info">{{$flight->arrival_date}}</em></span>
+                <form method="post" action="/flights/{{$flight->id}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn danger">Cancel Flight</button>
+                </form>
             </a>
         @endforeach
     </section>

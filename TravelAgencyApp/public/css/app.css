@@ -110,6 +110,18 @@
     transition-duration: 0.4s;
 }
 
+.btn.danger {
+    background-color:#af0404;
+    border-color: #cea2ac;
+    float: right;
+}
+
+.btn.danger:hover {
+    background-color:red;
+    border-color: #cea2ac;
+    float: right;
+}
+
 .btn:hover {
     background-color: #A2C7E5; /* Blue */
     color: white;

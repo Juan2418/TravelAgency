@@ -47,6 +47,12 @@ class FlightController extends Controller
         return redirect(route('flights.index'));
     }
 
+    public function delete(Flight $flight)
+    {
+        $flight->delete();
+        return redirect(route('flights.index'));
+    }
+
     private function validateCitiesAndDates(): array
     {
         return request()->validate([
