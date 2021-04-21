@@ -30,4 +30,6 @@ Route::get('/flights', 'App\Http\Controllers\FlightController@index')
 Route::get('/flights/create', 'App\Http\Controllers\FlightController@create')
     ->name('flights.create');
 Route::post('/flights', 'App\Http\Controllers\FlightController@store');
-
+Route::get('/flights/{flight}/edit', 'App\Http\Controllers\FlightController@edit')
+    ->name('flights.edit');
+Route::put('/flights/{flight}', 'App\Http\Controllers\FlightController@update');

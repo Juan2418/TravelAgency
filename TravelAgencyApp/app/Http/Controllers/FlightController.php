@@ -36,6 +36,17 @@ class FlightController extends Controller
         return redirect(route('flights.index'));
     }
 
+    public function edit(Flight $flight)
+    {
+        return view('flights.edit', ['flight' => $flight, 'cities' => City::all()]);
+    }
+
+    public function update(Flight $flight)
+    {
+        $flight->update($this->validateCitiesAndDates());
+        return redirect(route('flights.index'));
+    }
+
     private function validateCitiesAndDates(): array
     {
         return request()->validate([

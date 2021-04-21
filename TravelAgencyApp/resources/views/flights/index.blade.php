@@ -6,12 +6,12 @@
     </section>
     <section class="flight-item-group">
         @foreach($flights as $flight)
-            <section class="flight-item">
+            <a href="flights/{{$flight->id}}/edit" class="flight-item">
                 <span>Origin city: <em class="info">{{$flight->originCity->name}}</em></span>
                 <span>Destination city: <em class="info">{{$flight->destinationCity->name}}</em></span>
                 <span>Departure at: <em class="info">{{$flight->departure_date}}</em></span>
                 <span>Arrival at: <em class="info">{{$flight->arrival_date}}</em></span>
-            </section>
+            </a>
         @endforeach
     </section>
 @endsection
