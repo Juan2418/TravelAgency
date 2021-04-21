@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use Illuminate\Http\Request;
 use App\Models\Flight;
 
@@ -21,5 +22,44 @@ class FlightController extends Controller
             ->get();
 
         return view('flights.index', ['flights' => $nextFlights]);
+    }
+
+    public function create()
+    {
+        return view('flights.create', ['cities' => City::all()]);
+    }
+
+    public function store()
+    {
+        $validatedFields = $this->validateCitiesAndDates();
+        Flight::create($validatedFields);
+        return redirect(route('flights.index'));
+    }
+
+    public function edit(Flight $flight)
+    {
+        return view('flights.edit', ['flight' => $flight, 'cities' => City::all()]);
+    }
+
+    public function update(Flight $flight)
+    {
+        $flight->update($this->validateCitiesAndDates());
+        return redirect(route('flights.index'));
+    }
+
+    public function delete(Flight $flight)
+    {
+        $flight->delete();
+        return redirect(route('flights.index'));
+    }
+
+    private function validateCitiesAndDates(): array
+    {
+        return request()->validate([
+            'origin_city_id' => 'required',
+            'destination_city_id' => 'required',
+            'departure_date' => 'required',
+            'arrival_date' => 'required'
+        ]);
     }
 }

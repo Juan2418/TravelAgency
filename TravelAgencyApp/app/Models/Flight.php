@@ -9,6 +9,8 @@ class Flight extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function originCity() {
         return $this->belongsTo(City::class, 'origin_city_id');
     }

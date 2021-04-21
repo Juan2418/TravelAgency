@@ -49,6 +49,20 @@
     flex-direction: row;
 }
 
+.form-element {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-item-label {
+    margin-right: 0.2rem;
+}
+
 .clicked {
     background-color:#6461A0;
     color: white;
@@ -94,6 +108,18 @@
     font-weight: bold;
     text-align: center;
     transition-duration: 0.4s;
+}
+
+.btn.danger {
+    background-color:#af0404;
+    border-color: #cea2ac;
+    float: right;
+}
+
+.btn.danger:hover {
+    background-color:red;
+    border-color: #cea2ac;
+    float: right;
 }
 
 .btn:hover {

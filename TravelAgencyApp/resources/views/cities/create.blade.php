@@ -16,7 +16,7 @@
             @enderror
         </section>
 
-        <button type="submit" class="btn">Crear Ciudad</button>
+        <button type="submit" class="btn">Add City</button>
     </form>
 @endsection
 
