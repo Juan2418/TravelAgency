@@ -49,6 +49,20 @@
     flex-direction: row;
 }
 
+.form-element {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-item-label {
+    margin-right: 0.2rem;
+}
+
 .clicked {
     background-color:#6461A0;
     color: white;
