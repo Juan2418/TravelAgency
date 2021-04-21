@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('content')
+    <section class="submenu">
+        <a href="{{route('flights.indexByDeparture')}}" class="menu-item">Sort By Departure Time</a>
+    </section>
     <section class="flight-item-group">
         @foreach($flights as $flight)
             <section class="flight-item">
