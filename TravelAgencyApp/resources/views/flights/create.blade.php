@@ -5,11 +5,20 @@
         @csrf
         <section class="form-element">
             <section class="form-item">
+                <label for="airline_id">Traveling with <em class="info">{{$airline->name}}</em></label>
+                <select id="airline_id" name="airline_id" hidden>
+                    <option id="airline_id" name="airline_id" value="{{$airline->id}}" default>{{$airline->name}}</option>
+                </select>
+                @error('airline_id')
+                <p class="help ">{{$errors->first('airline_id')}}</p>
+                @enderror
+            </section>
+            <section class="form-item">
                 <label for="origin_city_id" class="form-item-label">Origin city:</label>
                 <select name="origin_city_id"
                         id="origin_city_id"
                         required>
-                    @foreach($cities as $city)
+                    @foreach($airline->cities as $city)
                         <option value="{{$city->id}}">{{$city->name}}</option>
                     @endforeach
                 </select>
@@ -19,7 +28,7 @@
                 <select name="destination_city_id"
                         id="destination_city_id"
                         required>
-                    @foreach($cities as $city)
+                    @foreach($airline->cities as $city)
                         <option value="{{$city->id}}">{{$city->name}}</option>
                     @endforeach
                 </select>

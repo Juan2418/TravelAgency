@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Airline;
 use App\Models\City;
 use Illuminate\Http\Request;
 use App\Models\Flight;
@@ -24,14 +25,20 @@ class FlightController extends Controller
         return view('flights.index', ['flights' => $nextFlights]);
     }
 
-    public function create()
+    public function selectAirline()
     {
-        return view('flights.create', ['cities' => City::all()]);
+        return view('flights.airline', ['airlines' => Airline::all()]);
+    }
+
+    public function create() {
+        $airline = Airline::where('id', '=', request('airline_id'))->first();
+
+        return view('flights.create', ['airline' => $airline]);
     }
 
     public function store()
     {
-        $validatedFields = $this->validateCitiesAndDates();
+        $validatedFields = $this->validateCitiesAirlineAndDates();
         Flight::create($validatedFields);
         return redirect(route('flights.index'));
     }
@@ -43,7 +50,7 @@ class FlightController extends Controller
 
     public function update(Flight $flight)
     {
-        $flight->update($this->validateCitiesAndDates());
+        $flight->update($this->validateCitiesAirlineAndDates());
         return redirect(route('flights.index'));
     }
 
@@ -53,13 +60,14 @@ class FlightController extends Controller
         return redirect(route('flights.index'));
     }
 
-    private function validateCitiesAndDates(): array
+    private function validateCitiesAirlineAndDates(): array
     {
         return request()->validate([
             'origin_city_id' => 'required',
             'destination_city_id' => 'required',
             'departure_date' => 'required',
-            'arrival_date' => 'required'
+            'arrival_date' => 'required',
+            'airline_id' => 'required'
         ]);
     }
 }

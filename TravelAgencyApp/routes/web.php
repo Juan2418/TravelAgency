@@ -27,6 +27,8 @@ Route::get('/flights/ByDeparture', 'App\Http\Controllers\FlightController@indexB
     ->name('flights.indexByDeparture');
 Route::get('/flights', 'App\Http\Controllers\FlightController@index')
     ->name('flights.index');
+Route::get('/flights/select-airline', 'App\Http\Controllers\FlightController@selectAirline')
+    ->name('flights.select-airline');
 Route::get('/flights/create', 'App\Http\Controllers\FlightController@create')
     ->name('flights.create');
 Route::post('/flights', 'App\Http\Controllers\FlightController@store');
