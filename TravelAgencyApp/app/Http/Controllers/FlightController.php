@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Airline;
 use App\Models\City;
 use Illuminate\Http\Request;
 use App\Models\Flight;
@@ -24,26 +25,32 @@ class FlightController extends Controller
         return view('flights.index', ['flights' => $nextFlights]);
     }
 
-    public function create()
+    public function selectAirline()
     {
-        return view('flights.create', ['cities' => City::all()]);
+        return view('flights.airline', ['airlines' => Airline::all()]);
+    }
+
+    public function create() {
+        $airline = Airline::where('id', '=', request('airline_id'))->first();
+
+        return view('flights.create', ['airline' => $airline]);
     }
 
     public function store()
     {
-        $validatedFields = $this->validateCitiesAndDates();
+        $validatedFields = $this->validateCitiesAirlineAndDates();
         Flight::create($validatedFields);
         return redirect(route('flights.index'));
     }
 
     public function edit(Flight $flight)
     {
-        return view('flights.edit', ['flight' => $flight, 'cities' => City::all()]);
+        return view('flights.edit', ['flight' => $flight]);
     }
 
     public function update(Flight $flight)
     {
-        $flight->update($this->validateCitiesAndDates());
+        $flight->update($this->validateCitiesAirlineAndDates());
         return redirect(route('flights.index'));
     }
 
@@ -53,13 +60,14 @@ class FlightController extends Controller
         return redirect(route('flights.index'));
     }
 
-    private function validateCitiesAndDates(): array
+    private function validateCitiesAirlineAndDates(): array
     {
         return request()->validate([
-            'origin_city_id' => 'required',
-            'destination_city_id' => 'required',
-            'departure_date' => 'required',
-            'arrival_date' => 'required'
+            'origin_city_id' => 'required|exists:cities,id',
+            'destination_city_id' => 'required|exists:cities,id',
+            'departure_date' => 'required|date',
+            'arrival_date' => 'required|date|after_or_equal:departure_date',
+            'airline_id' => 'required|exists:airlines,id'
         ]);
     }
 }

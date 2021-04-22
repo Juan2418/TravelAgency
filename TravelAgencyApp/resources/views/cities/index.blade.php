@@ -2,13 +2,14 @@
 
 @section('content')
     @foreach($cities as $city)
-        <section class="crud-item">
+        <a href="cities/{{$city->id}}/edit" class="crud-item">
             <span class="city-name">{{$city->name}}</span>
-            <section class="crud-btn-options">
-                <a href="cities/{{$city->id}}/edit" class="btn btn-crud">Edit</a>
-                <a href="cities/{{$city->id}}/delete" class="btn btn-crud">Delete</a>
-            </section>
-        </section>
+            <form method="post" action="/cities/{{$city->id}}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn danger">Delete</button>
+            </form>
+        </a>
     @endforeach
 @endsection
 

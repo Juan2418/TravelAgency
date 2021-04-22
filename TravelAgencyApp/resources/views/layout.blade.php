@@ -28,7 +28,13 @@
             <a href="/cities/create" class="menu-item {{Request::is('cities/create') ? 'clicked' : ''}}">Add City</a>
             <a href="{{route('cities.index')}}" class="menu-item {{Request::is('cities') ? 'clicked' : ''}}">List Cities</a>
             <a href="{{route('flights.index')}}" class="menu-item {{Request::is('flights') ? 'clicked' : ''}}">List Flights</a>
-            <a href="{{route('flights.create')}}" class="menu-item {{Request::is('flights/create') ? 'clicked' : ''}}">Add New Flights</a>
+            <a href="{{route('flights.select-airline')}}"
+               class="menu-item {{Request::is('flights/create') || Request::is('flights/select-airline')? 'clicked' : ''}}"
+            >
+                {{Request::is('flights/create') ? 'Select a different airline' : 'Add New Flight'}}
+            </a>
+            <a href="{{route('airlines.index')}}" class="menu-item {{Request::is('airlines') ? 'clicked' : ''}}">List Airlines</a>
+            <a href="{{route('airlines.create')}}" class="menu-item {{Request::is('airlines/create') ? 'clicked' : ''}}">Add Airlines</a>
         </nav>
         <main class="main-content">
             @yield('content')
