@@ -18,4 +18,8 @@ class Flight extends Model
     public function destinationCity() {
         return $this->belongsTo(City::class, 'destination_city_id');
     }
+
+    public function airline() {
+        return $this->belongsTo(Airline::class, 'airline_id');
+    }
 }
