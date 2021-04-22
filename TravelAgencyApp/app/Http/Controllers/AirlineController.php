@@ -42,6 +42,12 @@ class AirlineController extends Controller
         return redirect(route('airlines.index'));
     }
 
+    public function delete(Airline $airline)
+    {
+        $airline->delete();
+        return redirect(route('airlines.index'));
+    }
+
     private function validateNameDescriptionAndCities(): array
     {
         return request()->validate([

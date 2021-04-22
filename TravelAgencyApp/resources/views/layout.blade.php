@@ -33,6 +33,8 @@
             >
                 {{Request::is('flights/create') ? 'Select a different airline' : 'Add New Flight'}}
             </a>
+            <a href="{{route('airlines.index')}}" class="menu-item {{Request::is('airlines') ? 'clicked' : ''}}">List Airlines</a>
+            <a href="{{route('airlines.create')}}" class="menu-item {{Request::is('airlines/create') ? 'clicked' : ''}}">Add Airlines</a>
         </nav>
         <main class="main-content">
             @yield('content')

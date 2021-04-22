@@ -7,7 +7,7 @@
         <section class="form-element">
             <section class="form-item">
                 <label for="name">Airline name:</label>
-                <input type="text" name="name" id="name"/>
+                <input type="text" name="name" id="name" class="input"/>
             </section>
             <section class="form-item">
                 <label for="description">Airline description:</label>

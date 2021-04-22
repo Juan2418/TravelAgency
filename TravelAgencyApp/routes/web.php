@@ -44,3 +44,4 @@ Route::post('/airlines', 'App\Http\Controllers\AirlineController@store');
 Route::get('/airlines/{airline}/edit', 'App\Http\Controllers\AirlineController@edit')
     ->name('airlines.edit');
 Route::put('/airlines/{airline}', 'App\Http\Controllers\AirlineController@update');
+Route::delete('/airlines/{airline}', 'App\Http\Controllers\AirlineController@delete');
