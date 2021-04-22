@@ -11,7 +11,7 @@
                 <select name="origin_city_id"
                         id="origin_city_id"
                         required>
-                    @foreach($cities as $city)
+                    @foreach($flight->airline->cities as $city)
                         <option value="{{$city->id}}"
                             {{$city->id == $flight->origin_city_id ? 'selected' : ''}}
                         >
@@ -25,13 +25,16 @@
                 <select name="destination_city_id"
                         id="destination_city_id"
                         required>
-                    @foreach($cities as $city)
+                    @foreach($flight->airline->cities as $city)
                         <option value="{{$city->id}}"
                             {{$city->id == $flight->destination_city_id ? 'selected' : ''}}
                         >
                             {{$city->name}}
                         </option>
                     @endforeach
+                        @error('destination_city_id')
+                        <p class="help ">{{$errors->first('destination_city_id')}}</p>
+                        @enderror
                 </select>
             </section>
             <section class="form-item">
@@ -39,6 +42,7 @@
                 <input type="datetime-local"
                        name="departure_date"
                        id="departure_date"
+                       min="{{date('Y-m-d\TH:i')}}"
                        value="{{str_replace(' ', 'T', $flight->departure_date)}}"
                        required
                 />
@@ -51,6 +55,7 @@
                 <input type="datetime-local"
                        name="arrival_date"
                        id="arrival_date"
+                       min="{{date('Y-m-d\TH:i')}}"
                        value="{{str_replace(' ', 'T', $flight->arrival_date)}}"
                        required
                 />

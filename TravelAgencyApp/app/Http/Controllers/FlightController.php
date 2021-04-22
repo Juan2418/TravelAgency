@@ -45,7 +45,7 @@ class FlightController extends Controller
 
     public function edit(Flight $flight)
     {
-        return view('flights.edit', ['flight' => $flight, 'cities' => City::all()]);
+        return view('flights.edit', ['flight' => $flight]);
     }
 
     public function update(Flight $flight)
@@ -63,11 +63,11 @@ class FlightController extends Controller
     private function validateCitiesAirlineAndDates(): array
     {
         return request()->validate([
-            'origin_city_id' => 'required',
-            'destination_city_id' => 'required',
-            'departure_date' => 'required',
-            'arrival_date' => 'required',
-            'airline_id' => 'required'
+            'origin_city_id' => 'required|exists:cities,id',
+            'destination_city_id' => 'required|exists:cities,id',
+            'departure_date' => 'required|date',
+            'arrival_date' => 'required|date|after_or_equal:departure_date',
+            'airline_id' => 'required|exists:airlines,id'
         ]);
     }
 }

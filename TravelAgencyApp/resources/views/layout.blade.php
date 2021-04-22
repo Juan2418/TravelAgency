@@ -31,7 +31,7 @@
             <a href="{{route('flights.select-airline')}}"
                class="menu-item {{Request::is('flights/create') || Request::is('flights/select-airline')? 'clicked' : ''}}"
             >
-                {{Request::is('flights/select-airline') ? 'Add New Flight' : 'Select a different airline'}}
+                {{Request::is('flights/create') ? 'Select a different airline' : 'Add New Flight'}}
             </a>
         </nav>
         <main class="main-content">

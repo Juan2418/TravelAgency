@@ -7,7 +7,8 @@
             <section class="form-item">
                 <label for="airline_id">Traveling with <em class="info">{{$airline->name}}</em></label>
                 <select id="airline_id" name="airline_id" hidden>
-                    <option id="airline_id" name="airline_id" value="{{$airline->id}}" default>{{$airline->name}}</option>
+                    <option id="airline_id" name="airline_id" value="{{$airline->id}}"
+                            default>{{$airline->name}}</option>
                 </select>
                 @error('airline_id')
                 <p class="help ">{{$errors->first('airline_id')}}</p>
@@ -38,6 +39,7 @@
                 <input type="datetime-local"
                        name="departure_date"
                        id="departure_date"
+                       min="{{date('Y-m-d\TH:i')}}"
                        required
                 />
                 @error('departure_date')
@@ -49,6 +51,7 @@
                 <input type="datetime-local"
                        name="arrival_date"
                        id="arrival_date"
+                       min="{{date('Y-m-d\TH:i')}}"
                        required
                 />
                 @error('arrival_date')

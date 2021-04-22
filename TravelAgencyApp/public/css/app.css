@@ -59,6 +59,10 @@
     justify-content: space-between;
 }
 
+.form-textarea {
+    height: auto;
+}
+
 .form-item-label {
     margin-right: 0.2rem;
 }
@@ -76,11 +80,12 @@
 }
 
 .crud-item {
-    border: 1px solid;
+    border: 0.2rem dashed #cea2ac;
     border-radius: 0.5rem;
-    margin: 0.5rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
     min-width: 20rem;
-    background-color: #CEA2AC;
+    background-color: #f49fbc;
     display: grid;
     grid-template-areas: 'a b';
     grid-template-columns: 60% 40%;
