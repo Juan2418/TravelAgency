@@ -25,7 +25,7 @@ class AirlineController extends Controller
 
     public function store()
     {
-        $airline = new Airline($this->validateNameAndCities());
+        $airline = new Airline($this->validateNameDescriptionAndCities());
         $airline->save();
         $airline->cities()->attach(request('cities'));
         return redirect(route('airlines.index'));
@@ -33,15 +33,27 @@ class AirlineController extends Controller
 
     public function update(Airline $airline)
     {
-        $airline->update($this->validateNameAndCities());
+        if (strcmp(request('name'), $airline->name) != 0) {
+            $airline->update($this->validateNameDescriptionAndCities());
+        } else {
+            $airline->update($this->validateDescriptionAndCities());
+        }
+        $airline->cities()->sync(request('cities'));
         return redirect(route('airlines.index'));
     }
 
-    private function validateNameAndCities(): array
+    private function validateNameDescriptionAndCities(): array
     {
         return request()->validate([
             'name' => 'required|unique:airlines',
-            'description' => 'required'
+            'description' => 'required',
+        ]);
+    }
+
+    private function validateDescriptionAndCities(): array
+    {
+        return request()->validate([
+            'description' => 'required',
         ]);
     }
 }
