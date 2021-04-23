@@ -34,6 +34,7 @@ class AirlineController extends Controller
     public function update(Airline $airline)
     {
         if (strcmp(request('name'), $airline->name) != 0) {
+            dd($this->validateNameDescriptionAndCities());
             $airline->update($this->validateNameDescriptionAndCities());
         } else {
             $airline->update($this->validateDescriptionAndCities());
