@@ -8,8 +8,9 @@
 
 .flight-item-group {
     margin: 0.5rem;
-    display: grid;
-    grid-template-areas: "a b c";
+    display: flex;
     grid-column-gap: 0.2rem;
     grid-row-gap: 0.2rem;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
