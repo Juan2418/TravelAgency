@@ -15,7 +15,8 @@
             @enderror
             <section class="form-item">
                 <label for="description">Airline description:</label>
-                <input type="textarea" name="description" class="form-textarea input" value="{{$airline->description}}" id="description"/>
+                <textarea rows="10" name="description" class="form-textarea input"
+                          id="description">{{$airline->description}}</textarea>
             </section>
             <section class="form-item">
                 <select id="cities[]" name="cities[]" multiple>
